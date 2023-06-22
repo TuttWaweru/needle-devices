@@ -16,3 +16,9 @@ object NavigationRoutes {
         const val BASE = "home_screen_route"
     }
 }
+
+enum class Theme {
+    Light,
+    Dark,
+    System
+}

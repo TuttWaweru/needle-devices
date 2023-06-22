@@ -23,9 +23,14 @@ import needle.devices.com.androidApp.composeui.theme.AppTheme
 import needle.devices.com.app.FeedSideEffect
 import needle.devices.com.app.FeedStore
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AppActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+    private val viewModel: AppActivityViewModel by viewModel()
+
+    override
+    fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             AppTheme {
@@ -34,6 +39,8 @@ class AppActivity : ComponentActivity() {
                 val error = store.observeSideEffect()
                     .filterIsInstance<FeedSideEffect.Error>()
                     .collectAsState(null)
+                val uiState = viewModel.uiState.collectAsState()
+
                 LaunchedEffect(error.value) {
                     error.value?.let {
                         scaffoldState.snackbarHostState.showSnackbar(
@@ -41,6 +48,7 @@ class AppActivity : ComponentActivity() {
                         )
                     }
                 }
+
                 Box(
                     Modifier.padding(
                         WindowInsets.systemBars
