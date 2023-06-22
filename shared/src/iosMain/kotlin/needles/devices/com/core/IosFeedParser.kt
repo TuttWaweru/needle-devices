@@ -1,4 +1,4 @@
-package com.github.jetbrains.rssreader.core
+package needles.devices.com.core
 
 import needles.devices.com.core.datasource.network.FeedParser
 import needles.devices.com.core.entity.Feed
