@@ -5,14 +5,14 @@ plugins {
 }
 
 android {
-    namespace = "needles.devices.com.androidApp"
+    namespace = "needle.devices.com.androidApp"
     compileSdk = (findProperty("android.compileSdk") as String).toInt()
 
     defaultConfig {
         minSdk = (findProperty("android.minSdk") as String).toInt()
         targetSdk = (findProperty("android.targetSdk") as String).toInt()
 
-        applicationId = "needles.devices.com.androidApp"
+        applicationId = "needle.devices.com"
         versionCode = 1000
         versionName = "1.0.0.0"
     }
@@ -29,17 +29,6 @@ android {
     }
 
     buildTypes {
-        create("debugPG") {
-            isDebuggable = false
-            isMinifyEnabled = true
-            versionNameSuffix = "debugPG"
-            matchingFallbacks.add("debug")
-
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                file("proguard-rules.pro")
-            )
-        }
         release {
             isMinifyEnabled = true
             signingConfig = signingConfigs.getByName("release")
@@ -75,6 +64,8 @@ android {
         implementation(libs.androidx.compose.ui.tooling)
         implementation(libs.androidx.compose.foundation)
         implementation(libs.androidx.compose.material)
+        implementation(libs.androidx.compose.material3)
+        implementation(libs.androidx.compose.material3.window.size)
         implementation(libs.androidx.compose.navigation)
         //Compose Utils
         implementation(libs.coil.compose)

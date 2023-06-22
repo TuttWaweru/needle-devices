@@ -20,7 +20,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "Needle Devices"
+            baseName = "Needle"
         }
     }
 
@@ -74,7 +74,7 @@ kotlin {
 }
 
 android {
-    namespace = "needles.devices.com"
+    namespace = "needle.devices.com"
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     compileSdk = (findProperty("android.compileSdk") as String).toInt()
 

@@ -1,4 +1,8 @@
-# Needle Devices
+# Needle
+
+<img src="/media/needle_icon_large.png"/>
+
+Needle is an advertising platform for the medical industry
 
 ## Project structure
 
@@ -28,7 +32,7 @@ offline. [Ktor HTTP Client](https://ktor.io/docs/client.html) is used for making
 requests. [Kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) is used to
 serialize feed data and store it locally
 with [MultiplaformSettings](https://github.com/russhwolf/multiplatform-settings). This logic is
-organized in the shared module of the `needles.devices.com.core` package.
+organized in the shared module of the `needle.devices.com.core` package.
 
 ### Shared application state
 
@@ -38,7 +42,7 @@ either by a user or by some async work, and generates the new state. It stores t
 and facilitates subscription to state updates via Kotlin's `StateFlow`. To provide additional
 information about state updates, the `Store` class also produces **effects** that, for example, can
 be used to display this information via alerts. This logic is organized in the shared KMM module of
-the `needles.devices.com.app` package.
+the `needle.devices.com.app` package.
 
 ### Native UI
 

@@ -1,4 +1,4 @@
-rootProject.name = "Needle Devices"
+rootProject.name = "Needle"
 
 include(":shared")
 include(":androidApp")
