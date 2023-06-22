@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun AuthWelcomeRoute() {
-    RegisterScreen()
+    AuthWelcome()
 }
 
 @Composable

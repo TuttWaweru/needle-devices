@@ -1,5 +1,13 @@
 package needles.devices.com.androidApp.composeui.navigation
 
+import androidx.compose.runtime.Composable
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import needles.devices.com.androidApp.composeui.screens.auth.AuthWelcomeRoute
+import needles.devices.com.androidApp.composeui.screens.auth.LoginScreenRoute
+import needles.devices.com.androidApp.composeui.screens.auth.RegisterScreenRoute
 import needles.devices.com.androidApp.utils.NavigationRoutes
 
 sealed class Screen(val route: String) {
@@ -11,3 +19,26 @@ sealed class Screen(val route: String) {
 }
 
 class AppNavHost
+
+@Composable
+fun NavGraphBuilder.AddNavigation(navController: NavHostController) {
+    NavHost(
+        navController = navController,
+        startDestination = Screen.AuthWelcome.route,
+        builder = {
+            composable(Screen.AuthWelcome.route) {
+                // AuthWelcome screen
+                AuthWelcomeRoute()
+            }
+            composable(Screen.Register.route) {
+                RegisterScreenRoute()
+            }
+            composable(Screen.Login.route) {
+                LoginScreenRoute()
+            }
+            composable(Screen.ResetPassword.route) {
+                // ResetPassword screen
+            }
+        }
+    )
+}
