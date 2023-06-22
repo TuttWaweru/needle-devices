@@ -1,4 +1,4 @@
-package com.github.jetbrains.rssreader.androidApp.composeui
+package needles.devices.com.androidApp.composeui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview

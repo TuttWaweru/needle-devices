@@ -1,4 +1,4 @@
-package com.github.jetbrains.rssreader.androidApp.composeui
+package needles.devices.com.androidApp.composeui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

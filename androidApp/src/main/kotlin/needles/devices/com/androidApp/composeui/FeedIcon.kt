@@ -1,4 +1,4 @@
-package com.github.jetbrains.rssreader.androidApp.composeui
+package needles.devices.com.androidApp.composeui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -20,7 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.github.jetbrains.rssreader.androidApp.R
+import needles.devices.com.androidApp.R
 import com.github.jetbrains.rssreader.core.entity.Feed
 import java.util.*
 

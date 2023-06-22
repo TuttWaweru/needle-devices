@@ -5,16 +5,16 @@ plugins {
 }
 
 android {
-    namespace = "com.github.jetbrains.rssreader.androidApp"
+    namespace = "needles.devices.com.androidApp"
     compileSdk = (findProperty("android.compileSdk") as String).toInt()
 
     defaultConfig {
         minSdk = (findProperty("android.minSdk") as String).toInt()
         targetSdk = (findProperty("android.targetSdk") as String).toInt()
 
-        applicationId = "com.github.jetbrains.rssreader.androidApp"
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = "needles.devices.com.androidApp"
+        versionCode = 1000
+        versionName = "1.0.0.0"
     }
 
     signingConfigs {

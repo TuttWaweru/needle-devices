@@ -1,4 +1,4 @@
-package com.github.jetbrains.rssreader.androidApp
+package needles.devices.com.androidApp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,8 +11,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.navigator.Navigator
-import com.github.jetbrains.rssreader.androidApp.composeui.AppTheme
-import com.github.jetbrains.rssreader.androidApp.composeui.MainScreen
+import needles.devices.com.androidApp.composeui.AppTheme
+import needles.devices.com.androidApp.composeui.MainScreen
 import com.github.jetbrains.rssreader.app.FeedSideEffect
 import com.github.jetbrains.rssreader.app.FeedStore
 import kotlinx.coroutines.flow.*

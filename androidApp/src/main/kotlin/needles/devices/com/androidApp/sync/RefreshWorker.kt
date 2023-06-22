@@ -1,4 +1,4 @@
-package com.github.jetbrains.rssreader.androidApp.sync
+package needles.devices.com.androidApp.sync
 
 import android.content.Context
 import androidx.work.*
