@@ -2,8 +2,8 @@ package needles.devices.com.androidApp
 
 import android.app.Application
 import needles.devices.com.androidApp.sync.RefreshWorker
-import com.github.jetbrains.rssreader.app.FeedStore
-import com.github.jetbrains.rssreader.core.RssReader
+import needles.devices.com.app.FeedStore
+import needles.devices.com.core.RssReader
 import needles.devices.com.core.create
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger

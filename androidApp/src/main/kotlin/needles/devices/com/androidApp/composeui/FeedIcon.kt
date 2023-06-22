@@ -21,7 +21,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import needles.devices.com.androidApp.R
-import com.github.jetbrains.rssreader.core.entity.Feed
+import needles.devices.com.core.entity.Feed
 import java.util.*
 
 @Composable

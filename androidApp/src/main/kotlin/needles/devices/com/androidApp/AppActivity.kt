@@ -13,8 +13,8 @@ import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.navigator.Navigator
 import needles.devices.com.androidApp.composeui.AppTheme
 import needles.devices.com.androidApp.composeui.MainScreen
-import com.github.jetbrains.rssreader.app.FeedSideEffect
-import com.github.jetbrains.rssreader.app.FeedStore
+import needles.devices.com.app.FeedSideEffect
+import needles.devices.com.app.FeedStore
 import kotlinx.coroutines.flow.*
 import org.koin.android.ext.android.inject
 

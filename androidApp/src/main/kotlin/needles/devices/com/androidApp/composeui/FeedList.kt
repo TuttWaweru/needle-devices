@@ -15,9 +15,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import needles.devices.com.androidApp.R
-import com.github.jetbrains.rssreader.app.FeedAction
-import com.github.jetbrains.rssreader.app.FeedStore
-import com.github.jetbrains.rssreader.core.entity.Feed
+import needles.devices.com.app.FeedAction
+import needles.devices.com.app.FeedStore
+import needles.devices.com.core.entity.Feed
 
 @Composable
 fun FeedList(store: FeedStore) {

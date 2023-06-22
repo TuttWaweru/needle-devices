@@ -1,4 +1,4 @@
-package com.github.jetbrains.rssreader.app
+package needles.devices.com.app
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow

@@ -2,8 +2,8 @@ package needles.devices.com.androidApp.composeui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.github.jetbrains.rssreader.core.entity.Feed
-import com.github.jetbrains.rssreader.core.entity.Post
+import needles.devices.com.core.entity.Feed
+import needles.devices.com.core.entity.Post
 
 @Preview
 @Composable

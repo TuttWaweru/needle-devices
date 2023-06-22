@@ -2,7 +2,7 @@ package needles.devices.com.androidApp.sync
 
 import android.content.Context
 import androidx.work.*
-import com.github.jetbrains.rssreader.core.RssReader
+import needles.devices.com.core.RssReader
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.koin.core.component.KoinComponent

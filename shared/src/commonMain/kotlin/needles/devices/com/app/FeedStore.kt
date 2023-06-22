@@ -1,7 +1,7 @@
-package com.github.jetbrains.rssreader.app
+package needles.devices.com.app
 
-import com.github.jetbrains.rssreader.core.RssReader
-import com.github.jetbrains.rssreader.core.entity.Feed
+import needles.devices.com.core.RssReader
+import needles.devices.com.core.entity.Feed
 import io.github.aakira.napier.Napier
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

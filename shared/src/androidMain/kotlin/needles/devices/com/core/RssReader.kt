@@ -1,9 +1,8 @@
 package needles.devices.com.core
 
 import android.content.Context
-import com.github.jetbrains.rssreader.core.RssReader
-import com.github.jetbrains.rssreader.core.datasource.network.FeedLoader
-import com.github.jetbrains.rssreader.core.datasource.storage.FeedStorage
+import needles.devices.com.core.datasource.network.FeedLoader
+import needles.devices.com.core.datasource.storage.FeedStorage
 import com.russhwolf.settings.SharedPreferencesSettings
 import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier

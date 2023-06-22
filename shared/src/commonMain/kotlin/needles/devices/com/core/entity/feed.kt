@@ -1,9 +1,7 @@
-package com.github.jetbrains.rssreader.core.entity
+package needles.devices.com.core.entity
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlin.js.ExperimentalJsExport
-import kotlin.js.JsExport
 
 @Serializable
 data class Feed(

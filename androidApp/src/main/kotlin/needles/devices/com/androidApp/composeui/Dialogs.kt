@@ -16,7 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import com.github.jetbrains.rssreader.core.entity.Feed
+import needles.devices.com.core.entity.Feed
 import needles.devices.com.androidApp.R
 
 @Composable

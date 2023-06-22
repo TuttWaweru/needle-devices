@@ -1,11 +1,12 @@
 package com.github.jetbrains.rssreader.core
 
-import com.github.jetbrains.rssreader.core.datasource.network.FeedLoader
-import com.github.jetbrains.rssreader.core.datasource.storage.FeedStorage
+import needles.devices.com.core.datasource.network.FeedLoader
+import needles.devices.com.core.datasource.storage.FeedStorage
 import com.russhwolf.settings.NSUserDefaultsSettings
 import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier
 import kotlinx.serialization.json.Json
+import needles.devices.com.core.RssReader
 import platform.Foundation.NSUserDefaults
 
 fun RssReader.Companion.create(withLog: Boolean) = RssReader(

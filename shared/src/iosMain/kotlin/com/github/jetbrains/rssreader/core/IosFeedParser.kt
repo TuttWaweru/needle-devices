@@ -1,8 +1,8 @@
 package com.github.jetbrains.rssreader.core
 
-import com.github.jetbrains.rssreader.core.datasource.network.FeedParser
-import com.github.jetbrains.rssreader.core.entity.Feed
-import com.github.jetbrains.rssreader.core.entity.Post
+import needles.devices.com.core.datasource.network.FeedParser
+import needles.devices.com.core.entity.Feed
+import needles.devices.com.core.entity.Post
 import io.github.aakira.napier.Napier
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

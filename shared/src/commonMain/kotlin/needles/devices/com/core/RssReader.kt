@@ -1,8 +1,8 @@
-package com.github.jetbrains.rssreader.core
+package needles.devices.com.core
 
-import com.github.jetbrains.rssreader.core.datasource.network.FeedLoader
-import com.github.jetbrains.rssreader.core.datasource.storage.FeedStorage
-import com.github.jetbrains.rssreader.core.entity.Feed
+import needles.devices.com.core.datasource.network.FeedLoader
+import needles.devices.com.core.datasource.storage.FeedStorage
+import needles.devices.com.core.entity.Feed
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope

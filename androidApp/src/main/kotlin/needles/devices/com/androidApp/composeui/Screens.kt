@@ -18,8 +18,8 @@ import androidx.compose.ui.platform.LocalContext
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import com.github.jetbrains.rssreader.app.FeedAction
-import com.github.jetbrains.rssreader.app.FeedStore
+import needles.devices.com.app.FeedAction
+import needles.devices.com.app.FeedStore
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
