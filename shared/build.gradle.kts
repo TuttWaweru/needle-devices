@@ -49,6 +49,8 @@ kotlin {
                 implementation(libs.multiplatform.settings)
                 // DI
                 api(libs.koin.core)
+                // Compose navigation
+                // implementation(libs.androidx.compose.navigation)
             }
         }
 
