@@ -1,4 +1,4 @@
-package com.github.jetbrains.rssreader.core
+package needles.devices.com.core
 
 import io.github.aakira.napier.Napier
 import io.ktor.client.*

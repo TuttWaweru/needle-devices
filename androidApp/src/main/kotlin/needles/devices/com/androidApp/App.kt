@@ -4,7 +4,7 @@ import android.app.Application
 import needles.devices.com.androidApp.sync.RefreshWorker
 import com.github.jetbrains.rssreader.app.FeedStore
 import com.github.jetbrains.rssreader.core.RssReader
-import com.github.jetbrains.rssreader.core.create
+import needles.devices.com.core.create
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

@@ -1,6 +1,7 @@
-package com.github.jetbrains.rssreader.core
+package needles.devices.com.core
 
 import android.content.Context
+import com.github.jetbrains.rssreader.core.RssReader
 import com.github.jetbrains.rssreader.core.datasource.network.FeedLoader
 import com.github.jetbrains.rssreader.core.datasource.storage.FeedStorage
 import com.russhwolf.settings.SharedPreferencesSettings

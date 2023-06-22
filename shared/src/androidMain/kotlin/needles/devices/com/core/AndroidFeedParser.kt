@@ -1,11 +1,10 @@
-package com.github.jetbrains.rssreader.core
+package needles.devices.com.core
 
 import android.util.Xml
 import com.github.jetbrains.rssreader.core.datasource.network.FeedParser
 import com.github.jetbrains.rssreader.core.entity.Feed
 import com.github.jetbrains.rssreader.core.entity.Post
 import io.github.aakira.napier.Napier
-import io.ktor.http.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.xmlpull.v1.XmlPullParser
