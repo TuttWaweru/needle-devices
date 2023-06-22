@@ -1,4 +1,4 @@
-package needles.devices.com.androidApp
+package needles.devices.com.androidApp.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,8 +11,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.navigator.Navigator
-import needles.devices.com.androidApp.composeui.AppTheme
-import needles.devices.com.androidApp.composeui.MainScreen
+import needles.devices.com.androidApp.composeui.theme.AppTheme
+import needles.devices.com.androidApp.composeui.screens.MainScreen
 import needles.devices.com.app.FeedSideEffect
 import needles.devices.com.app.FeedStore
 import kotlinx.coroutines.flow.*

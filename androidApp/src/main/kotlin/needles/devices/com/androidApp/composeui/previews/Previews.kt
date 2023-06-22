@@ -1,7 +1,11 @@
-package needles.devices.com.androidApp.composeui
+package needles.devices.com.androidApp.composeui.previews
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import needles.devices.com.androidApp.composeui.components.PostItem
+import needles.devices.com.androidApp.composeui.components.FeedIcon
+import needles.devices.com.androidApp.composeui.components.FeedItem
+import needles.devices.com.androidApp.composeui.theme.AppTheme
 import needles.devices.com.core.entity.Feed
 import needles.devices.com.core.entity.Post
 
