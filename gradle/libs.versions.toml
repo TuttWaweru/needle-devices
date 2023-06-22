@@ -6,6 +6,7 @@ plugin-gver = "0.47.0"
 androidx-compose-compiler="1.4.7"
 androidx-compose = "1.4.3"
 androidx-compose-ui = "1.4.3"
+androidx-compose-material3 = "1.2.0-alpha02" #"1.1.1"
 kotlinx-serialization = "1.5.1"
 kotlinx-coroutines = "1.7.1"
 ktor = "2.3.1"
@@ -30,6 +31,8 @@ androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "androi
 androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "androidx-compose-ui" }
 androidx-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "androidx-compose" }
 androidx-compose-material = { module = "androidx.compose.material:material", version.ref = "androidx-compose" }
+androidx-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "androidx-compose-material3" }
+androidx-compose-material3-window-size = { module = "androidx.compose.material3:material3-window-size-class", version.ref = "androidx-compose-material3" }
 androidx-compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
