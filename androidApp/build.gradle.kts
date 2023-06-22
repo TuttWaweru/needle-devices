@@ -75,6 +75,7 @@ android {
         implementation(libs.androidx.compose.ui.tooling)
         implementation(libs.androidx.compose.foundation)
         implementation(libs.androidx.compose.material)
+        implementation(libs.androidx.compose.navigation)
         //Compose Utils
         implementation(libs.coil.compose)
         implementation(libs.activity.compose)

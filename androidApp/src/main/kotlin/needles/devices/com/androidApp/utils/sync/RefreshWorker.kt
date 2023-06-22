@@ -1,4 +1,4 @@
-package needles.devices.com.androidApp.sync
+package needles.devices.com.androidApp.utils.sync
 
 import android.content.Context
 import androidx.work.*

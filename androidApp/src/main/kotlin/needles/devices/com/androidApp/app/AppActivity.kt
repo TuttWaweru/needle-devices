@@ -3,7 +3,13 @@ package needles.devices.com.androidApp.app
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.only
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.material.Scaffold
 import androidx.compose.material.SnackbarHost
 import androidx.compose.material.rememberScaffoldState
@@ -11,11 +17,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.navigator.Navigator
+import kotlinx.coroutines.flow.filterIsInstance
+import needles.devices.com.androidApp.composeui.screens.auth.AuthWelcomeScreen
 import needles.devices.com.androidApp.composeui.theme.AppTheme
-import needles.devices.com.androidApp.composeui.screens.MainScreen
 import needles.devices.com.app.FeedSideEffect
 import needles.devices.com.app.FeedStore
-import kotlinx.coroutines.flow.*
 import org.koin.android.ext.android.inject
 
 class AppActivity : ComponentActivity() {
@@ -54,8 +60,11 @@ class AppActivity : ComponentActivity() {
                                 )
                             )
                         }
-                    ) {
-                        Navigator(MainScreen())
+                    ) { paddingValues ->
+//                        Navigator(MainScreen())
+                        Navigator(
+                            AuthWelcomeScreen(paddingValues = paddingValues)
+                        )
                     }
                 }
             }
