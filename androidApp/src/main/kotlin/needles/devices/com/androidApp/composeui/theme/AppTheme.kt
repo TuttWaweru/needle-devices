@@ -1,4 +1,4 @@
-package needles.devices.com.androidApp.composeui
+package needles.devices.com.androidApp.composeui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

@@ -1,4 +1,4 @@
-package needles.devices.com.androidApp.composeui
+package needles.devices.com.androidApp.composeui.screens
 
 import android.content.Intent
 import android.net.Uri
@@ -18,6 +18,8 @@ import androidx.compose.ui.platform.LocalContext
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import needles.devices.com.androidApp.composeui.components.MainFeed
+import needles.devices.com.androidApp.composeui.components.FeedList
 import needles.devices.com.app.FeedAction
 import needles.devices.com.app.FeedStore
 import org.koin.core.component.KoinComponent

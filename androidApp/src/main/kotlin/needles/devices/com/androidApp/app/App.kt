@@ -1,6 +1,7 @@
-package needles.devices.com.androidApp
+package needles.devices.com.androidApp.app
 
 import android.app.Application
+import needles.devices.com.androidApp.BuildConfig
 import needles.devices.com.androidApp.sync.RefreshWorker
 import needles.devices.com.app.FeedStore
 import needles.devices.com.core.RssReader

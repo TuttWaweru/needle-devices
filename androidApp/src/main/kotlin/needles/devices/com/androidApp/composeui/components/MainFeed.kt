@@ -1,4 +1,4 @@
-package needles.devices.com.androidApp.composeui
+package needles.devices.com.androidApp.composeui.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
