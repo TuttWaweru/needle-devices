@@ -1,5 +1,8 @@
 package needle.devices.com.androidApp.composeui.screens
 
+// TODO : delete after confirming its useless
+
+/*
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.layout.Box
@@ -71,4 +74,4 @@ class FeedListScreen : Screen, KoinComponent {
         val store: FeedStore by inject()
         FeedList(store = store)
     }
-}
+}*/

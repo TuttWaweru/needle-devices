@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,14 +27,7 @@ import needle.devices.com.androidApp.composeui.theme.Height
 import needle.devices.com.androidApp.composeui.theme.Padding
 import org.koin.core.component.KoinComponent
 
-@Composable
-fun AuthWelcomeRoute() {
-    // AuthWelcome()
-}
-
-data class AuthWelcomeScreen(
-    val paddingValues: PaddingValues
-) : Screen, KoinComponent {
+class AuthWelcomeScreen : Screen, KoinComponent {
     @Composable
     override fun Content() {
         val context = LocalContext.current

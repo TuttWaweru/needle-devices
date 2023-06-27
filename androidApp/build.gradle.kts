@@ -63,7 +63,6 @@ android {
         implementation(libs.androidx.compose.ui)
         implementation(libs.androidx.compose.ui.tooling)
         implementation(libs.androidx.compose.foundation)
-        implementation(libs.androidx.compose.material)
         implementation(libs.androidx.compose.material3)
         implementation(libs.androidx.compose.material3.window.size)
         implementation(libs.androidx.compose.navigation)
@@ -71,6 +70,7 @@ android {
         implementation(libs.coil.compose)
         implementation(libs.activity.compose)
         implementation(libs.accompanist.swiperefresh)
+        implementation(libs.androidx.lifecycle.runtimeCompose)
         //Coroutines
         implementation(libs.kotlinx.coroutines.core)
         implementation(libs.kotlinx.coroutines.android)

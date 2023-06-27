@@ -10,12 +10,14 @@ import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
-import androidx.compose.material.Scaffold
-import androidx.compose.material.SnackbarHost
-import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import cafe.adriel.voyager.navigator.Navigator
 import kotlinx.coroutines.flow.filterIsInstance
 import needle.devices.com.androidApp.composeui.screens.auth.AuthWelcomeScreen
@@ -35,15 +37,15 @@ class AppActivity : ComponentActivity() {
         setContent {
             AppTheme {
                 val store: FeedStore by inject()
-                val scaffoldState = rememberScaffoldState()
+                val snackbarHostState = remember { SnackbarHostState() }
                 val error = store.observeSideEffect()
                     .filterIsInstance<FeedSideEffect.Error>()
                     .collectAsState(null)
-                val uiState = viewModel.uiState.collectAsState()
+                val uiState = viewModel.uiState.collectAsStateWithLifecycle()
 
                 LaunchedEffect(error.value) {
                     error.value?.let {
-                        scaffoldState.snackbarHostState.showSnackbar(
+                        snackbarHostState.showSnackbar(
                             it.error.message.toString()
                         )
                     }
@@ -57,10 +59,9 @@ class AppActivity : ComponentActivity() {
                     )
                 ) {
                     Scaffold(
-                        scaffoldState = scaffoldState,
-                        snackbarHost = { hostState ->
+                        snackbarHost = {
                             SnackbarHost(
-                                hostState = hostState,
+                                hostState = snackbarHostState,
                                 modifier = Modifier.padding(
                                     WindowInsets.systemBars
                                         .only(WindowInsetsSides.Bottom)
@@ -69,9 +70,10 @@ class AppActivity : ComponentActivity() {
                             )
                         }
                     ) { paddingValues ->
-//                        Navigator(MainScreen())
+                        // Navigator(MainScreen())
+                        val padding = paddingValues
                         Navigator(
-                            AuthWelcomeScreen(paddingValues = paddingValues)
+                            AuthWelcomeScreen()
                         )
                     }
                 }

@@ -3,10 +3,10 @@ package needle.devices.com.androidApp.composeui.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -29,7 +29,7 @@ fun AddFeedDialog(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colors.surface, shape = RoundedCornerShape(8.dp))
+            .background(MaterialTheme.colorScheme.surface, shape = RoundedCornerShape(8.dp))
             .padding(16.dp)
     ) {
         val input = remember { mutableStateOf(TextFieldValue()) }
@@ -64,7 +64,7 @@ fun DeleteFeedDialog(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colors.surface, shape = RoundedCornerShape(8.dp))
+            .background(MaterialTheme.colorScheme.surface, shape = RoundedCornerShape(8.dp))
             .padding(16.dp)
     ) {
         Text(text = feed.sourceUrl)
