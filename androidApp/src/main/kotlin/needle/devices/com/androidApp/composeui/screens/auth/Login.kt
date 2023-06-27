@@ -1,5 +1,6 @@
 package needle.devices.com.androidApp.composeui.screens.auth
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -7,9 +8,16 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Button
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,6 +35,7 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import needle.devices.com.androidApp.R
+import needle.devices.com.androidApp.composeui.components.NeedleTopBar
 import needle.devices.com.androidApp.composeui.screens.homeflow.HomeScreen
 import needle.devices.com.androidApp.composeui.screens.viewmodels.LoginScreenViewModel
 import needle.devices.com.androidApp.composeui.theme.Height
@@ -52,15 +61,19 @@ fun LoginScreen() {
             .fillMaxSize()
             .padding(Padding.Normal),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Top
     ) {
+        NeedleTopBar(onBackButtonClick = { navigator.pop() }, onNeedleIconClick = {})
+
+        Spacer(modifier = Modifier.height(Height.Normal))
+
         Text(
             modifier = Modifier.fillMaxWidth(),
             text = "Login Screen",
             textAlign = TextAlign.Center
         )
 
-        Spacer(modifier = Modifier.height(Height.Normal))
+        Spacer(modifier = Modifier.height(Height.Large))
 
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
@@ -70,18 +83,24 @@ fun LoginScreen() {
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone)
         )
 
-        Spacer(modifier = Modifier.height(Height.Normal))
+        Spacer(modifier = Modifier.height(Height.ExtraLarge))
 
-        Button(
-            modifier = Modifier,
+        IconButton(
+            modifier = Modifier
+                .padding(top = Padding.ExtraLarge)
+                .size(64.dp)
+                .background(shape = CircleShape, color = MaterialTheme.colorScheme.primary),
+            colors = IconButtonDefaults.iconButtonColors(contentColor = MaterialTheme.colorScheme.onPrimary),
             onClick = {
                 navigator.push(HomeScreen())
             }
         ) {
-            Text(
-                modifier = Modifier.fillMaxWidth(),
-                text = stringResource(id = R.string.login),
-                textAlign = TextAlign.Center
+            Icon(
+                imageVector = Icons.Default.ArrowForward,
+                contentDescription = stringResource(id = R.string.login),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(Padding.XsSmall)
             )
         }
     }
