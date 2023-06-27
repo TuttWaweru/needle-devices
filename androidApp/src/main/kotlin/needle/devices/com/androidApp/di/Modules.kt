@@ -1,0 +1,24 @@
+package needle.devices.com.androidApp.di
+
+import needle.devices.com.androidApp.BuildConfig
+import needle.devices.com.androidApp.app.AppActivityViewModel
+import needle.devices.com.app.FeedStore
+import needle.devices.com.core.RssReader
+import needle.devices.com.core.create
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.module.Module
+import org.koin.dsl.module
+
+val dataModule: Module = module {
+    single { RssReader.create(get(), BuildConfig.DEBUG) }
+    single { FeedStore(get()) }
+}
+
+val viewmodelModule: Module = module {
+    viewModel { AppActivityViewModel() }
+}
+
+val appModules: List<Module> = listOf(
+    dataModule,
+    viewmodelModule
+)
