@@ -82,6 +82,13 @@ fun LoginScreen() {
             shape = RoundedCornerShape(8.dp),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone)
         )
+        /*TogiCountryCodePicker(
+            text = uiState.phoneNumber,
+            onValueChange = { viewModel.updatePhoneNumber(it) },
+            unfocusedBorderColor = MaterialTheme.colorScheme.primary,
+            bottomStyle =false, //  if true the text-field is below the country code selector at the top.
+            shape = RoundedCornerShape(24.dp)
+        )*/
 
         Spacer(modifier = Modifier.height(Height.ExtraLarge))
 
