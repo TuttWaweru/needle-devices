@@ -81,5 +81,7 @@ android {
         implementation(libs.voyager.navigator)
         //WorkManager
         implementation(libs.work.runtime.ktx)
+        //Libphonenumber
+        implementation(libs.libphonenumber)
     }
 }

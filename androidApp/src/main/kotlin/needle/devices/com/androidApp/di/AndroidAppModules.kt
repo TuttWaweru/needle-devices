@@ -1,5 +1,6 @@
 package needle.devices.com.androidApp.di
 
+import com.google.i18n.phonenumbers.PhoneNumberUtil
 import needle.devices.com.androidApp.BuildConfig
 import needle.devices.com.androidApp.app.AppActivityViewModel
 import needle.devices.com.androidApp.composeui.screens.viewmodels.LoginScreenViewModel
@@ -20,7 +21,12 @@ val viewmodelModule: Module = module {
     viewModel { LoginScreenViewModel() }
 }
 
+val utilModule: Module = module {
+    single { PhoneNumberUtil.getInstance() }
+}
+
 val appModules: List<Module> = listOf(
     dataModule,
-    viewmodelModule
+    viewmodelModule,
+    utilModule,
 )
