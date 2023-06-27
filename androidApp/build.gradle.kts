@@ -83,5 +83,7 @@ android {
         implementation(libs.work.runtime.ktx)
         //Libphonenumber
         implementation(libs.libphonenumber)
+        //Timber
+        implementation(libs.timber)
     }
 }
