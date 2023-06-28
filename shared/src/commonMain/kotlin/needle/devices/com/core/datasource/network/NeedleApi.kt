@@ -1,9 +1,9 @@
 package needle.devices.com.core.datasource.network
 
+import io.github.aakira.napier.Napier
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.plugins.logging.DEFAULT
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
@@ -22,8 +22,12 @@ val needleClient = HttpClient {
         })
     }
     install(Logging) {
-        logger = Logger.DEFAULT
         level = LogLevel.ALL
+        logger = object : Logger {
+            override fun log(message: String) {
+                Napier.v(tag = "NeedleHttpClient", message = message)
+            }
+        }
     }
 }
 

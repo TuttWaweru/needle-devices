@@ -41,7 +41,7 @@ class LoginScreenViewModel : ViewModel(), KoinComponent {
         try {
             // Testing
             sampleLogin(eventCode = "demo_event").let { response ->
-                Timber.i("** received response: $response")
+                Timber.i("** received response: ${response.eventId}")
             }
         } catch (e: Exception) {
             Timber.e(e, e.localizedMessage)
