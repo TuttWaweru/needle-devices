@@ -29,11 +29,12 @@ import needle.devices.com.androidApp.composeui.theme.Padding
 
 @Composable
 internal fun NeedleTopBar(
+    modifier: Modifier = Modifier,
     onBackButtonClick: () -> Unit,
     onNeedleIconClick: () -> Unit,
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(
                 vertical = Padding.Normal,
