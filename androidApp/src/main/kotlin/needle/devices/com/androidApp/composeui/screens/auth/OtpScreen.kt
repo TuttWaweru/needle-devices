@@ -23,12 +23,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import needle.devices.com.androidApp.R
 import needle.devices.com.androidApp.composeui.components.NeedleTopBar
 import needle.devices.com.androidApp.composeui.screens.homeflow.HomeScreen
+import needle.devices.com.androidApp.composeui.screens.viewmodels.OtpScreenViewModel
 import needle.devices.com.androidApp.composeui.theme.Height
 import needle.devices.com.androidApp.composeui.theme.Padding
 import org.koin.core.component.KoinComponent
@@ -43,6 +46,8 @@ class OtpScreen : Screen, KoinComponent {
 @Composable
 private fun Otp() {
     val navigator = LocalNavigator.currentOrThrow
+    val viewModel: OtpScreenViewModel = viewModel()
+    val uiState = viewModel.uiState.collectAsStateWithLifecycle().value
 
     Column(
         modifier = Modifier
