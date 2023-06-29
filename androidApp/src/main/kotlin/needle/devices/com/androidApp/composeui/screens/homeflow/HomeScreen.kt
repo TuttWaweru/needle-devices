@@ -3,10 +3,12 @@ package needle.devices.com.androidApp.composeui.screens.homeflow
 import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,6 +19,8 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import needle.devices.com.androidApp.composeui.components.NeedleTopBar
+import needle.devices.com.androidApp.composeui.theme.Height
 import needle.devices.com.androidApp.composeui.theme.Padding
 import org.koin.core.component.KoinComponent
 
@@ -44,8 +48,15 @@ private fun HomeScreenContent(
             .fillMaxSize()
             .padding(Padding.Normal),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Top
     ) {
+        NeedleTopBar(
+            onBackButtonClick = { navigator.popAll() },
+            onNeedleIconClick = {}
+        )
+
+        Spacer(modifier = Modifier.height(Height.Normal))
+
         Text(
             modifier = Modifier.fillMaxWidth(),
             text = "Home Screen",

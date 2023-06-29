@@ -39,6 +39,8 @@ kotlin {
                 //Network
                 implementation(libs.ktor.core)
                 implementation(libs.ktor.logging)
+                implementation(libs.ktor.kotlinx.json)
+                implementation(libs.ktor.content.negotiation)
                 //Coroutines
                 implementation(libs.kotlinx.coroutines.core)
                 //Logger
@@ -49,8 +51,6 @@ kotlin {
                 implementation(libs.multiplatform.settings)
                 // DI
                 api(libs.koin.core)
-                // Compose navigation
-                // implementation(libs.androidx.compose.navigation)
             }
         }
 

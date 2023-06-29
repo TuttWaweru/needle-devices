@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -37,7 +37,7 @@ fun FeedIcon(
             .size(48.dp)
             .clip(CircleShape)
             .background(
-                color = if (isSelected) MaterialTheme.colors.secondary else Color.Transparent
+                color = if (isSelected) MaterialTheme.colorScheme.secondary else Color.Transparent
             )
     ) {
         Box(
@@ -45,12 +45,12 @@ fun FeedIcon(
                 .size(40.dp)
                 .clip(CircleShape)
                 .align(Alignment.Center)
-                .background(color = MaterialTheme.colors.primary)
+                .background(color = MaterialTheme.colorScheme.primary)
                 .clickable(enabled = onClick != null, onClick = onClick ?: {})
         ) {
             Text(
                 modifier = Modifier.align(Alignment.Center),
-                color = MaterialTheme.colors.onPrimary,
+                color = MaterialTheme.colorScheme.onPrimary,
                 text = shortName
             )
             feed?.imageUrl?.let { url ->
@@ -78,7 +78,7 @@ fun EditIcon(
         modifier = Modifier
             .size(48.dp)
             .clip(CircleShape)
-            .background(color = MaterialTheme.colors.secondary)
+            .background(color = MaterialTheme.colorScheme.secondary)
             .clickable(onClick = onClick)
     ) {
         Image(

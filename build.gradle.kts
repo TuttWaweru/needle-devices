@@ -5,6 +5,9 @@ buildscript {
         gradlePluginPortal()
         google()
         mavenCentral()
+        maven {
+            url = uri("https://jitpack.io")
+        }
     }
     dependencies {
         classpath(libs.bundles.plugins)
@@ -15,6 +18,9 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url = uri("https://jitpack.io")
+        }
     }
 
     // ./gradlew dependencyUpdates
