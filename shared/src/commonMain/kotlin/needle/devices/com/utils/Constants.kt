@@ -20,3 +20,7 @@ object Constants {
     const val BASE_URL = ""
     const val SAMPLE_URL = "http://197.248.68.161/server/public/api/v1/"
 }
+enum class NeedleStorageKeys {
+    TOKEN;
+    val key get() = this.name
+}

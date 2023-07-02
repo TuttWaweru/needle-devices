@@ -99,8 +99,8 @@ fun LoginScreen() {
                 .background(shape = CircleShape, color = MaterialTheme.colorScheme.primary),
             colors = IconButtonDefaults.iconButtonColors(contentColor = MaterialTheme.colorScheme.onPrimary),
             onClick = {
-                //viewModel.initEventLogin()
-                navigator.push(OtpScreen())
+                viewModel.initEventLogin()
+                // navigator.push(OtpScreen())
             }
         ) {
             Icon(

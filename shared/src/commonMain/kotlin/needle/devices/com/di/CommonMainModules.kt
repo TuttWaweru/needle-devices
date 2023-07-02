@@ -16,11 +16,22 @@
 
 package needle.devices.com.di
 
+import com.russhwolf.settings.Settings
 import needle.devices.com.core.datasource.network.needleClient
+import needle.devices.com.settings.NeedleKeyValueStorage
+import needle.devices.com.settings.NeedleKeyValueStorageImpl
 import org.koin.dsl.module
 
+val storageModule = module {
+    single { Settings }
+    single<NeedleKeyValueStorage> { NeedleKeyValueStorageImpl(get()) }
+}
+
+val apiModule = module {
+    single { needleClient }
+}
+
 val commonApiModule = listOf(
-    module {
-        single { needleClient }
-    }
+    apiModule,
+    storageModule
 )
