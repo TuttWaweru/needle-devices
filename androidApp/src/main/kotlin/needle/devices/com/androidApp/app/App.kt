@@ -6,7 +6,7 @@ import needle.devices.com.androidApp.BuildConfig
 import needle.devices.com.androidApp.di.appModules
 import needle.devices.com.androidApp.utils.sync.RefreshWorker
 import needle.devices.com.core.di.androidModule
-import needle.devices.com.di.commonApiModule
+import needle.devices.com.di.commonModules
 import org.jetbrains.annotations.NotNull
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -31,7 +31,7 @@ class App : Application() {
             androidContext(this@App)
             val modules = mutableListOf<Module>().apply {
                 addAll(appModules)
-                addAll(commonApiModule)
+                addAll(commonModules)
                 addAll(androidModule)
             }
             modules(modules)

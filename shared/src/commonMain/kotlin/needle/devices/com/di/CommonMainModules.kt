@@ -24,14 +24,14 @@ import org.koin.dsl.module
 
 val storageModule = module {
     single { Settings }
-    single<NeedleKeyValueStorage> { NeedleKeyValueStorageImpl(get()) }
+    single<NeedleKeyValueStorage> { NeedleKeyValueStorageImpl() }
 }
 
 val apiModule = module {
     single { needleClient }
 }
 
-val commonApiModule = listOf(
+val commonModules = listOf(
     apiModule,
     storageModule
 )
