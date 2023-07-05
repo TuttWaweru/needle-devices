@@ -8,4 +8,12 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="reset_password">Reset Password</string>
+    <string name="text_continue">Continue</string>
+    <string name="welcome">Welcome</string>
+
+    <!--  filler texts  -->
+    <string name="lorem_ipsum_140">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, urna nec volutpat aliquam, nisl nisi consequat velit, a consequat enim dolor id nunc.</string>
+    <string name="lorem_ipsum_300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, urna nec volutpat aliquam, nisl nisi consequat velit, a consequat enim dolor id nunc. Nulla facilisi. Sed id semper justo. Suspendisse potenti. Nullam auctor, nunc id fringilla lacinia, mauris nunc lobortis mi, id aliquet nulla nunc id nisl. Sed ac justo ac nunc fermentum fringilla. Fusce in lectus id odio efficitur luctus. Integer nec mauris et nisl aliquet lacinia. Nulla facilisi. Donec auctor, justo et luctus consectetur, felis nisi tincidunt nunc, id lacinia mi velit in leo. Sed et semper nisi, nec porta nisl. Sed ac nisl auctor, tincidunt nunc id, fermentum nunc. Vivamus auctor, ex id lacinia efficitur, nunc sapien tincidunt massa, sit amet tincidunt urna nisl ac nunc.</string>
+    <string name="lorem_ipsum_3">Lorem ipsum dolor</string>
+
 </resources>

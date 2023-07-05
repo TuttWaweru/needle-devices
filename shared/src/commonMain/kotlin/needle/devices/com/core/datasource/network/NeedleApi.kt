@@ -30,12 +30,3 @@ val needleClient = HttpClient {
         }
     }
 }
-
-suspend fun sampleLogin(eventCode: String): EventLoginResponse {
-    return needleClient.submitForm(
-        url = "${SAMPLE_URL}event-login",
-        formParameters = parameters {
-            append(name = "event_code", eventCode)
-        }
-    ).body()
-}
