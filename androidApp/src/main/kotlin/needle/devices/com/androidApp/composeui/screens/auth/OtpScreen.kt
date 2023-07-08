@@ -31,11 +31,12 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import needle.devices.com.androidApp.R
 import needle.devices.com.androidApp.composeui.components.NeedleTopBar
-import needle.devices.com.androidApp.composeui.screens.homeflow.HomeScreen
+import needle.devices.com.androidApp.composeui.components.OutlinedOtpTextField
 import needle.devices.com.androidApp.composeui.screens.viewmodels.OtpScreenViewModel
 import needle.devices.com.androidApp.composeui.theme.Height
 import needle.devices.com.androidApp.composeui.theme.Padding
 import org.koin.core.component.KoinComponent
+import timber.log.Timber
 
 class OtpScreen : Screen, KoinComponent {
     @Composable
@@ -47,7 +48,12 @@ class OtpScreen : Screen, KoinComponent {
         Otp(
             onBackButtonClick = { navigator.pop() },
             onNeedleIconClick = {},
-            onClickLoginButton = { navigator.push(ScreenRegister()) }
+            onClickLoginButton = { navigator.push(ScreenRegister()) },
+            otp = uiState.otp,
+            updateOtp = { newOtp: String ->
+                Timber.i("** newOtp: $newOtp")
+                viewModel.updateOtp(value = newOtp)
+            }
         )
     }
 }
@@ -57,6 +63,8 @@ private fun Otp(
     onBackButtonClick: () -> Unit = {},
     onNeedleIconClick: () -> Unit = {},
     onClickLoginButton: () -> Unit = {},
+    otp: String,
+    updateOtp: (String) -> Unit,
 ) {
 
     Column(
@@ -66,7 +74,9 @@ private fun Otp(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        NeedleTopBar(onBackButtonClick = { onBackButtonClick() }, onNeedleIconClick = { onNeedleIconClick() })
+        NeedleTopBar(
+            onBackButtonClick = { onBackButtonClick() },
+            onNeedleIconClick = { onNeedleIconClick() })
 
         Spacer(modifier = Modifier.height(Height.Normal))
 
@@ -75,6 +85,26 @@ private fun Otp(
             text = "Otp Screen",
             textAlign = TextAlign.Center
         )
+
+        Spacer(modifier = Modifier.height(Height.Normal))
+
+        OutlinedOtpTextField(
+            modifier = Modifier,
+            value = otp,
+            onValueChange = {
+                updateOtp(it)
+            },
+            length = 4,
+            onFilled = {},
+            errorMessage = null,
+            helperText = null,
+            enabled = true,
+            readOnly = false,
+            requestFocus = true,
+            clearFocusWhenFilled = true
+        )
+
+        Spacer(modifier = Modifier.height(Height.Medium))
 
         Spacer(modifier = Modifier.height(Height.Large))
 
@@ -102,5 +132,8 @@ private fun Otp(
 @Composable
 @Preview(showBackground = true, showSystemUi = true)
 private fun OtpPreview() {
-    Otp()
+    Otp(
+        otp = "1234",
+        updateOtp = {}
+    )
 }
