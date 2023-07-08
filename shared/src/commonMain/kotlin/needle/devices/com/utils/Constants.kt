@@ -17,6 +17,10 @@
 package needle.devices.com.utils
 
 object Constants {
-    const val BASE_URL = ""
+    const val BASE_URL = "api.needle.tumaganji.gq" //"https://c431-197-237-149-186.ngrok-free.app"
     const val SAMPLE_URL = "http://197.248.68.161/server/public/api/v1/"
+}
+enum class NeedleStorageKeys {
+    TOKEN;
+    val key get() = this.name
 }

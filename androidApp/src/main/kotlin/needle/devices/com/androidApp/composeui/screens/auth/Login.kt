@@ -44,17 +44,32 @@ import org.koin.core.component.KoinComponent
 class ScreenLogin : Screen, KoinComponent {
     @Composable
     override fun Content() {
-        LoginScreen()
+        val context = LocalContext.current
+        val navigator = LocalNavigator.currentOrThrow
+        val viewModel: LoginScreenViewModel = viewModel()
+        val uiState = viewModel.uiState.collectAsStateWithLifecycle().value
+
+        LoginScreen(
+            onBackButtonClick = { navigator.pop() },
+            phoneNumber = uiState.phoneNumber,
+            updatePhoneNumber = { phoneNumber ->
+                viewModel.updatePhoneNumber(phoneNumber)
+            },
+            onClickLogin = {
+                viewModel.initEventLogin()
+                // navigator.push(OtpScreen())
+            }
+        )
     }
 }
 
 @Composable
-fun LoginScreen() {
-    val context = LocalContext.current
-    val navigator = LocalNavigator.currentOrThrow
-    val viewModel: LoginScreenViewModel = viewModel()
-    val uiState = viewModel.uiState.collectAsStateWithLifecycle().value
-
+private fun LoginScreen(
+    onBackButtonClick: () -> Unit,
+    phoneNumber: String,
+    updatePhoneNumber: (String) -> Unit,
+    onClickLogin: () -> Unit,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -62,7 +77,10 @@ fun LoginScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        NeedleTopBar(onBackButtonClick = { navigator.pop() }, onNeedleIconClick = {})
+        NeedleTopBar(
+            onBackButtonClick = { onBackButtonClick() },
+            onNeedleIconClick = {}
+        )
 
         Spacer(modifier = Modifier.height(Height.Normal))
 
@@ -76,8 +94,8 @@ fun LoginScreen() {
 
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
-            value = uiState.phoneNumber,
-            onValueChange = { viewModel.updatePhoneNumber(it) },
+            value = phoneNumber,
+            onValueChange = { updatePhoneNumber(it) },
             shape = RoundedCornerShape(8.dp),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone)
         )
@@ -98,10 +116,7 @@ fun LoginScreen() {
                 .size(64.dp)
                 .background(shape = CircleShape, color = MaterialTheme.colorScheme.primary),
             colors = IconButtonDefaults.iconButtonColors(contentColor = MaterialTheme.colorScheme.onPrimary),
-            onClick = {
-                //viewModel.initEventLogin()
-                navigator.push(OtpScreen())
-            }
+            onClick = { onClickLogin() }
         ) {
             Icon(
                 imageVector = Icons.Default.ArrowForward,
@@ -117,5 +132,10 @@ fun LoginScreen() {
 @Composable
 @Preview
 private fun LoginScreenPreview() {
-    LoginScreen()
+    LoginScreen(
+        onBackButtonClick = {},
+        phoneNumber = "",
+        updatePhoneNumber = {},
+        onClickLogin = {},
+    )
 }

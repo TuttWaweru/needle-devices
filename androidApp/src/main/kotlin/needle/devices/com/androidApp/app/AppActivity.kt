@@ -20,7 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import cafe.adriel.voyager.navigator.Navigator
 import kotlinx.coroutines.flow.filterIsInstance
-import needle.devices.com.androidApp.composeui.screens.auth.AuthWelcomeScreen
+import needle.devices.com.androidApp.composeui.screens.onboarding.WelcomeOneScreen
 import needle.devices.com.androidApp.composeui.theme.AppTheme
 import needle.devices.com.app.FeedSideEffect
 import needle.devices.com.app.FeedStore
@@ -73,7 +73,7 @@ class AppActivity : ComponentActivity() {
                         // Navigator(MainScreen())
                         val padding = paddingValues
                         Navigator(
-                            AuthWelcomeScreen()
+                            WelcomeOneScreen()
                         )
                     }
                 }
