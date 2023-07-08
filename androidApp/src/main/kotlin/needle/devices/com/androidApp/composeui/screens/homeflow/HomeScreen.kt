@@ -15,12 +15,13 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.DockedSearchBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
-import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -39,6 +40,7 @@ import needle.devices.com.androidApp.composeui.components.NeedleTopBar
 import needle.devices.com.androidApp.composeui.screens.viewmodels.HomeScreenViewModel
 import needle.devices.com.androidApp.composeui.theme.Height
 import needle.devices.com.androidApp.composeui.theme.Padding
+import needle.devices.com.androidApp.utils.showToast
 import org.koin.core.component.KoinComponent
 import timber.log.Timber
 
@@ -50,12 +52,19 @@ class HomeScreen : Screen, KoinComponent {
         val viewModel: HomeScreenViewModel = viewModel()
         val uiState = viewModel.uiState.collectAsStateWithLifecycle().value
 
+        LaunchedEffect(key1 = uiState.error, block = {
+            if (uiState.error.isNotBlank()) {
+                context.showToast(uiState.error)
+            }
+        })
+
         HomeScreenContent(
             onBackButtonClick = { navigator.popAll() },
             searchQuery = uiState.searchQuery,
             updatesearchQuery = { newQuery: String -> viewModel.updateSearchQuery(value = newQuery) },
-            isSearchActive = uiState.isSeachBarActive,
+            showSearchResults = uiState.showSearchResults,
             searchResults = uiState.searchResults,
+            initializeSearch = { query: String -> viewModel.initializeSearch(value = query) }
         )
     }
 
@@ -67,7 +76,8 @@ private fun HomeScreenContent(
     onBackButtonClick: () -> Unit,
     searchQuery: String,
     updatesearchQuery: (String) -> Unit,
-    isSearchActive: Boolean,
+    initializeSearch: (String) -> Unit,
+    showSearchResults: Boolean,
     searchResults: List<String>,
 ) {
     Column(
@@ -104,12 +114,18 @@ private fun HomeScreenContent(
 
         Spacer(modifier = Modifier.height(Height.Normal))
 
-        SearchBar(
+        DockedSearchBar(
             query = searchQuery,
-            onQueryChange = { newQuery: String -> updatesearchQuery(newQuery) },
-            onSearch = { newSearch: String -> updatesearchQuery(newSearch) },
-            active = isSearchActive,
-            onActiveChange = { isActive: Boolean -> Timber.i("** search-bar is $isActive") },
+            onQueryChange = { newQuery: String ->
+                Timber.i("** onQueryChange is $newQuery")
+                updatesearchQuery(newQuery)
+            },
+            onSearch = { newSearch: String ->
+                Timber.i("** onSearch is $newSearch")
+                initializeSearch(newSearch)
+            },
+            active = showSearchResults,
+            onActiveChange = { isActive: Boolean -> Timber.i("** search-bar isActive[ $isActive ]") },
             modifier = Modifier
                 .fillMaxWidth(),
             leadingIcon = {
@@ -161,7 +177,8 @@ private fun HomeScreenContentPreview() {
         onBackButtonClick = {},
         searchQuery = "search",
         updatesearchQuery = {},
-        isSearchActive = true,
-        searchResults = emptyList()
+        showSearchResults = true,
+        searchResults = emptyList(),
+        initializeSearch = {}
     )
 }
