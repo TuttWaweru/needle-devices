@@ -22,14 +22,10 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import needle.devices.com.androidApp.R
+import needle.devices.com.androidApp.composeui.screens.homeflow.HomeScreen
 import needle.devices.com.androidApp.composeui.theme.Height
 import needle.devices.com.androidApp.composeui.theme.Padding
 import org.koin.core.component.KoinComponent
-
-@Composable
-fun RegisterScreenRoute() {
-    // RegisterScreen()
-}
 
 class ScreenRegister : Screen, KoinComponent {
     @Composable
@@ -65,12 +61,12 @@ fun RegisterScreen(
         Button(
             modifier = Modifier,
             onClick = {
-                navigator.push(ScreenLogin())
+                navigator.push(HomeScreen())
             }
         ) {
             Text(
                 modifier = Modifier.fillMaxWidth(),
-                text = stringResource(id = R.string.login),
+                text = stringResource(id = R.string.home),
                 textAlign = TextAlign.Center
             )
         }

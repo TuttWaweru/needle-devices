@@ -10,6 +10,7 @@
     <string name="reset_password">Reset Password</string>
     <string name="text_continue">Continue</string>
     <string name="welcome">Welcome</string>
+    <string name="home">Home</string>
 
     <!--  filler texts  -->
     <string name="lorem_ipsum_140">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, urna nec volutpat aliquam, nisl nisi consequat velit, a consequat enim dolor id nunc.</string>

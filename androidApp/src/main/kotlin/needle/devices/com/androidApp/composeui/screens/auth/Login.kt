@@ -56,8 +56,8 @@ class ScreenLogin : Screen, KoinComponent {
                 viewModel.updatePhoneNumber(phoneNumber)
             },
             onClickLogin = {
-                viewModel.initEventLogin()
-                // navigator.push(OtpScreen())
+                // viewModel.initEventLogin()
+                navigator.push(OtpScreen())
             }
         )
     }

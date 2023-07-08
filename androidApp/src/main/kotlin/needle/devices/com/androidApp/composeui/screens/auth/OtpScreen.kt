@@ -75,7 +75,7 @@ private fun Otp() {
                 .background(shape = CircleShape, color = MaterialTheme.colorScheme.primary),
             colors = IconButtonDefaults.iconButtonColors(contentColor = MaterialTheme.colorScheme.onPrimary),
             onClick = {
-                navigator.push(HomeScreen())
+                navigator.push(ScreenRegister())
             }
         ) {
             Icon(
