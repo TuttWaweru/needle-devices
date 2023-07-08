@@ -33,15 +33,16 @@ class ScreenRegister : Screen, KoinComponent {
         val context = LocalContext.current
         val navigator = LocalNavigator.currentOrThrow
 
-        RegisterScreen(context = context, navigator = navigator)
+        RegisterScreen(
+            onClickRegisterButton = { navigator.push(HomeScreen()) }
+        )
     }
 
 }
 
 @Composable
 fun RegisterScreen(
-    context: Context,
-    navigator: Navigator,
+    onClickRegisterButton: () -> Unit = {},
 ) {
     Column(
         modifier = Modifier
@@ -61,7 +62,7 @@ fun RegisterScreen(
         Button(
             modifier = Modifier,
             onClick = {
-                navigator.push(HomeScreen())
+                onClickRegisterButton()
             }
         ) {
             Text(
@@ -74,10 +75,7 @@ fun RegisterScreen(
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true, showSystemUi = true)
 private fun RegisterScreenPreview() {
-    RegisterScreen(
-        context = LocalContext.current,
-        navigator = LocalNavigator.currentOrThrow
-    )
+    RegisterScreen()
 }

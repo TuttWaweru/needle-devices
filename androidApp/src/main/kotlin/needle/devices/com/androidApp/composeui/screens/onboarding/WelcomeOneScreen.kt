@@ -105,7 +105,7 @@ class WelcomeOneScreen : Screen, KoinComponent {
     }
 
     @Composable
-    @Preview
+    @Preview(showBackground = true, showSystemUi = true)
     private fun WelcomeScreenPreview() {
         WelcomeScreen()
     }

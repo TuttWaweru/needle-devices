@@ -130,7 +130,7 @@ private fun LoginScreen(
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true, showSystemUi = true)
 private fun LoginScreenPreview() {
     LoginScreen(
         onBackButtonClick = {},

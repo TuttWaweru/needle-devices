@@ -9,7 +9,7 @@ import needle.devices.com.androidApp.composeui.theme.AppTheme
 import needle.devices.com.core.entity.Feed
 import needle.devices.com.core.entity.Post
 
-@Preview
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun FeedItemPreview() {
     AppTheme {
@@ -17,7 +17,7 @@ private fun FeedItemPreview() {
     }
 }
 
-@Preview
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun PostPreview() {
     AppTheme {
@@ -25,7 +25,7 @@ private fun PostPreview() {
     }
 }
 
-@Preview
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun FeedIconPreview() {
     AppTheme {
@@ -33,7 +33,7 @@ private fun FeedIconPreview() {
     }
 }
 
-@Preview
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun FeedIconSelectedPreview() {
     AppTheme {

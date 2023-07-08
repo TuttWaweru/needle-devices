@@ -11,6 +11,8 @@
     <string name="text_continue">Continue</string>
     <string name="welcome">Welcome</string>
     <string name="home">Home</string>
+    <string name="no_value_set">---</string>
+    <string name="no_value_set_number">0</string>
 
     <!--  filler texts  -->
     <string name="lorem_ipsum_140">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, urna nec volutpat aliquam, nisl nisi consequat velit, a consequat enim dolor id nunc.</string>

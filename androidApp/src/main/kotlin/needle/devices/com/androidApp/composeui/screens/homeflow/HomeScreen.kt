@@ -66,7 +66,7 @@ private fun HomeScreenContent(
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true, showSystemUi = true)
 private fun HomeScreenContentPreview() {
     HomeScreenContent(
         context = LocalContext.current,

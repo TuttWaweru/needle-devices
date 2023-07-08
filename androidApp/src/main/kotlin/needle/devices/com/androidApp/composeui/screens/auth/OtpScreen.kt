@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -39,15 +40,24 @@ import org.koin.core.component.KoinComponent
 class OtpScreen : Screen, KoinComponent {
     @Composable
     override fun Content() {
-        Otp()
+        val navigator = LocalNavigator.currentOrThrow
+        val viewModel: OtpScreenViewModel = viewModel()
+        val uiState = viewModel.uiState.collectAsStateWithLifecycle().value
+
+        Otp(
+            onBackButtonClick = { navigator.pop() },
+            onNeedleIconClick = {},
+            onClickLoginButton = { navigator.push(ScreenRegister()) }
+        )
     }
 }
 
 @Composable
-private fun Otp() {
-    val navigator = LocalNavigator.currentOrThrow
-    val viewModel: OtpScreenViewModel = viewModel()
-    val uiState = viewModel.uiState.collectAsStateWithLifecycle().value
+private fun Otp(
+    onBackButtonClick: () -> Unit = {},
+    onNeedleIconClick: () -> Unit = {},
+    onClickLoginButton: () -> Unit = {},
+) {
 
     Column(
         modifier = Modifier
@@ -56,7 +66,7 @@ private fun Otp() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        NeedleTopBar(onBackButtonClick = { navigator.pop() }, onNeedleIconClick = {})
+        NeedleTopBar(onBackButtonClick = { onBackButtonClick() }, onNeedleIconClick = { onNeedleIconClick() })
 
         Spacer(modifier = Modifier.height(Height.Normal))
 
@@ -75,7 +85,7 @@ private fun Otp() {
                 .background(shape = CircleShape, color = MaterialTheme.colorScheme.primary),
             colors = IconButtonDefaults.iconButtonColors(contentColor = MaterialTheme.colorScheme.onPrimary),
             onClick = {
-                navigator.push(ScreenRegister())
+                onClickLoginButton()
             }
         ) {
             Icon(
@@ -87,4 +97,10 @@ private fun Otp() {
             )
         }
     }
+}
+
+@Composable
+@Preview(showBackground = true, showSystemUi = true)
+private fun OtpPreview() {
+    Otp()
 }
