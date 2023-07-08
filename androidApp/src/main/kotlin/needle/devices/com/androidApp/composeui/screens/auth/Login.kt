@@ -57,7 +57,7 @@ class ScreenLogin : Screen, KoinComponent {
             },
             onClickLogin = {
                 // viewModel.initEventLogin()
-                navigator.push(OtpScreen())
+                navigator.push(OtpScreen(phoneNumber = uiState.phoneNumber))
             }
         )
     }

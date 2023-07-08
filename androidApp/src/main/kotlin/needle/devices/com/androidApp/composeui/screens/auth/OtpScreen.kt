@@ -20,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -40,22 +41,32 @@ import needle.devices.com.androidApp.composeui.theme.Padding
 import org.koin.core.component.KoinComponent
 import timber.log.Timber
 
-class OtpScreen : Screen, KoinComponent {
+data class OtpScreen(
+    val phoneNumber: String
+) : Screen, KoinComponent {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
         val viewModel: OtpScreenViewModel = viewModel()
         val uiState = viewModel.uiState.collectAsStateWithLifecycle().value
+        val context = LocalContext.current
 
         Otp(
             onBackButtonClick = { navigator.pop() },
             onNeedleIconClick = {},
-            onClickLoginButton = { navigator.push(ScreenRegister()) },
+            onClickLoginButton = {
+                if (uiState.otp.length != 4 || uiState.otp.isBlank()) {
+                    Timber.i("** Invalid Otp")
+                } else {
+                    navigator.push(ScreenRegister())
+                }
+            },
             otp = uiState.otp,
             updateOtp = { newOtp: String ->
                 Timber.i("** newOtp: $newOtp")
                 viewModel.updateOtp(value = newOtp)
-            }
+            },
+            phoneNumber = phoneNumber
         )
     }
 }
@@ -67,6 +78,7 @@ private fun Otp(
     onClickLoginButton: () -> Unit = {},
     otp: String,
     updateOtp: (String) -> Unit,
+    phoneNumber: String
 ) {
 
     Column(
@@ -101,7 +113,7 @@ private fun Otp(
             )
             Spacer(modifier = Modifier.height(Height.Medium))
             Text(
-                text = stringResource(id = R.string.to_the_number),
+                text = stringResource(id = R.string.to_the_number, phoneNumber),
                 modifier = Modifier.fillMaxWidth(),
             )
         }
@@ -163,6 +175,7 @@ private fun Otp(
 private fun OtpPreview() {
     Otp(
         otp = "1234",
-        updateOtp = {}
+        updateOtp = {},
+        phoneNumber = stringResource(id = R.string.sample_ke_number)
     )
 }
