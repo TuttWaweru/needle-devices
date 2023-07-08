@@ -13,6 +13,11 @@
     <string name="home">Home</string>
     <string name="no_value_set">---</string>
     <string name="no_value_set_number">0</string>
+    <string name="verification">Verification</string>
+    <string name="next">Next</string>
+    <string name="code_not_arrived">Code not arrived?</string>
+    <string name="to_the_number">To the number: %1s%</string>
+    <string name="sent_sms_with_code">We have sent an SMS with a code</string>
 
     <!--  filler texts  -->
     <string name="lorem_ipsum_140">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, urna nec volutpat aliquam, nisl nisi consequat velit, a consequat enim dolor id nunc.</string>
