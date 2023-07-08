@@ -5,6 +5,7 @@ import needle.devices.com.androidApp.BuildConfig
 import needle.devices.com.androidApp.app.AppActivityViewModel
 import needle.devices.com.androidApp.composeui.screens.viewmodels.LoginScreenViewModel
 import needle.devices.com.androidApp.composeui.screens.viewmodels.OtpScreenViewModel
+import needle.devices.com.androidApp.composeui.screens.viewmodels.RegisterScreenViewModel
 import needle.devices.com.app.FeedStore
 import needle.devices.com.core.RssReader
 import needle.devices.com.core.create
@@ -21,6 +22,7 @@ val viewmodelModule: Module = module {
     viewModel { AppActivityViewModel() }
     viewModel { LoginScreenViewModel() }
     viewModel { OtpScreenViewModel() }
+    viewModel { RegisterScreenViewModel() }
 }
 
 val utilModule: Module = module {

@@ -13,8 +13,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -30,11 +32,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import needle.devices.com.androidApp.R
 import needle.devices.com.androidApp.composeui.screens.homeflow.HomeScreen
+import needle.devices.com.androidApp.composeui.screens.viewmodels.RegisterScreenViewModel
 import needle.devices.com.androidApp.composeui.theme.Height
 import needle.devices.com.androidApp.composeui.theme.Padding
 import needle.devices.com.androidApp.utils.showToast
@@ -45,12 +50,26 @@ class ScreenRegister : Screen, KoinComponent {
     override fun Content() {
         val context = LocalContext.current
         val navigator = LocalNavigator.currentOrThrow
+        val viewModel: RegisterScreenViewModel = viewModel()
+        val uiState = viewModel.uiState.collectAsStateWithLifecycle().value
 
         RegisterScreen(
-            onClickRegisterButton = { navigator.push(HomeScreen()) },
+            onClickRegisterButton = {
+                if (uiState.name.isBlank()) {
+                    context.showToast("Put Some Data!")
+                } else {
+                    navigator.push(HomeScreen())
+                }
+            },
             onClickAddPhoto = {
                 context.showToast(message = "Add Photo")
             },
+            name = uiState.name,
+            address = uiState.address,
+            profileDesc = uiState.profileDescription,
+            updateName = { viewModel.updateName(value = it) },
+            updateAddress = { viewModel.updateAddress(value = it) },
+            updateProfileDesc = { viewModel.updateProfileDescription(value = it) },
         )
     }
 
@@ -60,11 +79,19 @@ class ScreenRegister : Screen, KoinComponent {
 fun RegisterScreen(
     onClickRegisterButton: () -> Unit,
     onClickAddPhoto: () -> Unit,
+    name: String,
+    updateName: (String) -> Unit,
+    address: String,
+    updateAddress: (String) -> Unit,
+    profileDesc: String,
+    updateProfileDesc: (String) -> Unit,
 ) {
+    val scrollState = rememberScrollState()
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(Padding.Normal),
+            .padding(Padding.Normal)
+            .verticalScroll(scrollState, enabled = true),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(modifier = Modifier.height(Height.ExtraLarge))
@@ -117,47 +144,58 @@ fun RegisterScreen(
 
         Text(
             text = stringResource(id = R.string.name_or_company_name),
-            modifier = Modifier.fillMaxWidth().padding(start = Padding.Small),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = Padding.Small),
             fontWeight = FontWeight.Medium,
             fontSize = 14.sp,
         )
         Spacer(modifier = Modifier.height(Height.Small))
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
+            value = name,
+            onValueChange = { updateName(it) },
             modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(24.dp)
+            shape = RoundedCornerShape(24.dp),
+            singleLine = true,
         )
 
         Spacer(modifier = Modifier.height(Height.Normal))
 
         Text(
             text = stringResource(id = R.string.address),
-            modifier = Modifier.fillMaxWidth().padding(start = Padding.Small),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = Padding.Small),
             fontWeight = FontWeight.Medium,
             fontSize = 14.sp,
         )
         Spacer(modifier = Modifier.height(Height.Small))
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
+            value = address,
+            onValueChange = { updateAddress(it) },
             modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(24.dp)
+            shape = RoundedCornerShape(24.dp),
+            maxLines = 2,
+            singleLine = false,
         )
 
         Spacer(modifier = Modifier.height(Height.Normal))
 
         Text(
             text = stringResource(id = R.string.profile_description),
-            modifier = Modifier.fillMaxWidth().padding(start = Padding.Small),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = Padding.Small),
             fontWeight = FontWeight.Medium,
             fontSize = 14.sp,
         )
         Spacer(modifier = Modifier.height(Height.Small))
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
-            modifier = Modifier.fillMaxWidth().defaultMinSize(minHeight = 100.dp),
+            value = profileDesc,
+            onValueChange = { updateProfileDesc(it) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .defaultMinSize(minHeight = 100.dp),
             shape = RoundedCornerShape(24.dp),
             singleLine = false,
         )
@@ -183,5 +221,14 @@ fun RegisterScreen(
 @Composable
 @Preview(showBackground = true, showSystemUi = true)
 private fun RegisterScreenPreview() {
-    RegisterScreen(onClickRegisterButton = {}, onClickAddPhoto = {})
+    RegisterScreen(
+        onClickRegisterButton = {},
+        onClickAddPhoto = {},
+        name = "Stacey Vargas",
+        address = "primis",
+        profileDesc = "tincidunt",
+        updateName = {},
+        updateAddress = {},
+        updateProfileDesc = {},
+    )
 }
