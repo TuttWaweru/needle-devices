@@ -31,8 +31,7 @@ class HomeScreen : Screen, KoinComponent {
         val navigator = LocalNavigator.currentOrThrow
 
         HomeScreenContent(
-            context = context,
-            navigator = navigator,
+            onBackButtonClick = { navigator.popAll() }
         )
     }
 
@@ -40,8 +39,7 @@ class HomeScreen : Screen, KoinComponent {
 
 @Composable
 private fun HomeScreenContent(
-    context: Context,
-    navigator: Navigator,
+    onBackButtonClick: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -51,7 +49,7 @@ private fun HomeScreenContent(
         verticalArrangement = Arrangement.Top
     ) {
         NeedleTopBar(
-            onBackButtonClick = { navigator.popAll() },
+            onBackButtonClick = { onBackButtonClick() },
             onNeedleIconClick = {}
         )
 
@@ -69,7 +67,6 @@ private fun HomeScreenContent(
 @Preview(showBackground = true, showSystemUi = true)
 private fun HomeScreenContentPreview() {
     HomeScreenContent(
-        context = LocalContext.current,
-        navigator = LocalNavigator.currentOrThrow
+        onBackButtonClick = {},
     )
 }
