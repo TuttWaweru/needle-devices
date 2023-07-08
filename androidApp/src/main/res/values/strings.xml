@@ -31,6 +31,13 @@
     <string name="login_and_registration">Login/Registration</string>
     <string name="give_me_your_number">Give me your phone number, to join Needle.</string>
 
+    <string name="exhibit">Exhibit</string>
+    <string name="explore">Explore</string>
+    <string name="find_unique_equipment_for">Find unique equipment for your clinic</string>
+    <string name="search">Search</string>
+    <string name="diagnostics">Diagnostics</string>
+    <string name="sterilization">Sterilization</string>
+
     <!--  filler texts  -->
     <string name="lorem_ipsum_140">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, urna nec volutpat aliquam, nisl nisi consequat velit, a consequat enim dolor id nunc.</string>
     <string name="lorem_ipsum_300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, urna nec volutpat aliquam, nisl nisi consequat velit, a consequat enim dolor id nunc. Nulla facilisi. Sed id semper justo. Suspendisse potenti. Nullam auctor, nunc id fringilla lacinia, mauris nunc lobortis mi, id aliquet nulla nunc id nisl. Sed ac justo ac nunc fermentum fringilla. Fusce in lectus id odio efficitur luctus. Integer nec mauris et nisl aliquet lacinia. Nulla facilisi. Donec auctor, justo et luctus consectetur, felis nisi tincidunt nunc, id lacinia mi velit in leo. Sed et semper nisi, nec porta nisl. Sed ac nisl auctor, tincidunt nunc id, fermentum nunc. Vivamus auctor, ex id lacinia efficitur, nunc sapien tincidunt massa, sit amet tincidunt urna nisl ac nunc.</string>
@@ -38,5 +45,9 @@
     <string name="no_value_set">---</string>
     <string name="no_value_set_number">0</string>
     <string name="sample_ke_number">0711223344</string>
+
+    <!--    currency codes  -->
+    <string name="currency_pln">PLN</string><!--    for Polish Zlotych  -->
+    <string name="currency_kes">KES</string><!--    for Kenya  -->
 
 </resources>
