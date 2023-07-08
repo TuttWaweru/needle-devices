@@ -21,9 +21,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import cafe.adriel.voyager.core.screen.Screen
@@ -80,13 +82,31 @@ private fun Otp(
 
         Spacer(modifier = Modifier.height(Height.Normal))
 
-        Text(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            text = "Otp Screen",
-            textAlign = TextAlign.Center
-        )
+            horizontalAlignment = Alignment.Start,
+            verticalArrangement = Arrangement.SpaceEvenly
+        ) {
+            Text(
+                text = stringResource(id = R.string.verification),
+                modifier = Modifier.fillMaxWidth(),
+                color = MaterialTheme.colorScheme.outline,
+            )
+            Spacer(modifier = Modifier.height(Height.Medium))
+            Text(
+                text = stringResource(id = R.string.sent_sms_with_code),
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.fillMaxWidth(),
+            )
+            Spacer(modifier = Modifier.height(Height.Medium))
+            Text(
+                text = stringResource(id = R.string.to_the_number),
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
 
-        Spacer(modifier = Modifier.height(Height.Normal))
+        Spacer(modifier = Modifier.height(Height.Large))
 
         OutlinedOtpTextField(
             modifier = Modifier,
@@ -104,9 +124,17 @@ private fun Otp(
             clearFocusWhenFilled = true
         )
 
-        Spacer(modifier = Modifier.height(Height.Medium))
+        Spacer(modifier = Modifier.height(Height.Small))
 
-        Spacer(modifier = Modifier.height(Height.Large))
+        Text(
+            text = stringResource(id = R.string.code_not_arrived),
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Center,
+            fontWeight = FontWeight.Medium,
+            color = MaterialTheme.colorScheme.primary,
+        )
+
+        Spacer(modifier = Modifier.height(Height.FortyEight))
 
         IconButton(
             modifier = Modifier
@@ -126,6 +154,7 @@ private fun Otp(
                     .padding(Padding.XsSmall)
             )
         }
+        Text(text = stringResource(id = R.string.next))
     }
 }
 

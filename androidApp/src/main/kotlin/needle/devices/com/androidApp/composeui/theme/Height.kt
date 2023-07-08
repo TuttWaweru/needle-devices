@@ -23,4 +23,8 @@ object Height {
      *  16 dp
      */
     val ExtraLarge = 32.dp
+    /**
+     *  48 dp
+     */
+    val FortyEight = 48.dp
 }
