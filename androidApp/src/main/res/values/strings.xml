@@ -37,6 +37,7 @@
     <string name="search">Search</string>
     <string name="diagnostics">Diagnostics</string>
     <string name="sterilization">Sterilization</string>
+    <string name="content_description_home_searchbar">Search input for equipment</string>
 
     <!--  filler texts  -->
     <string name="lorem_ipsum_140">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, urna nec volutpat aliquam, nisl nisi consequat velit, a consequat enim dolor id nunc.</string>

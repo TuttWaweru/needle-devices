@@ -3,6 +3,7 @@ package needle.devices.com.androidApp.di
 import com.google.i18n.phonenumbers.PhoneNumberUtil
 import needle.devices.com.androidApp.BuildConfig
 import needle.devices.com.androidApp.app.AppActivityViewModel
+import needle.devices.com.androidApp.composeui.screens.viewmodels.HomeScreenViewModel
 import needle.devices.com.androidApp.composeui.screens.viewmodels.LoginScreenViewModel
 import needle.devices.com.androidApp.composeui.screens.viewmodels.OtpScreenViewModel
 import needle.devices.com.androidApp.composeui.screens.viewmodels.RegisterScreenViewModel
@@ -23,6 +24,7 @@ val viewmodelModule: Module = module {
     viewModel { LoginScreenViewModel() }
     viewModel { OtpScreenViewModel() }
     viewModel { RegisterScreenViewModel() }
+    viewModel { HomeScreenViewModel() }
 }
 
 val utilModule: Module = module {
