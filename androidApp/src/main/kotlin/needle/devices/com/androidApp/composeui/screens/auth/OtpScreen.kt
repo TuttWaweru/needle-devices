@@ -63,7 +63,7 @@ data class OtpScreen(
                         length = Toast.LENGTH_LONG
                     )
                 } else {
-                    navigator.push(ScreenRegister())
+                    navigator.push(ScreenRegister(phoneNumber = phoneNumber))
                 }
             },
             otp = uiState.otp,

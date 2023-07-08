@@ -45,7 +45,9 @@ import needle.devices.com.androidApp.composeui.theme.Padding
 import needle.devices.com.androidApp.utils.showToast
 import org.koin.core.component.KoinComponent
 
-class ScreenRegister : Screen, KoinComponent {
+data class ScreenRegister(
+    val phoneNumber: String
+) : Screen, KoinComponent {
     @Composable
     override fun Content() {
         val context = LocalContext.current
