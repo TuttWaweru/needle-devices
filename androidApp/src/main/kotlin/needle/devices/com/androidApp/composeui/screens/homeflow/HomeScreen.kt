@@ -13,12 +13,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import needle.devices.com.androidApp.R
 import needle.devices.com.androidApp.composeui.components.NeedleTopBar
 import needle.devices.com.androidApp.composeui.theme.Height
 import needle.devices.com.androidApp.composeui.theme.Padding
@@ -57,9 +61,22 @@ private fun HomeScreenContent(
 
         Text(
             modifier = Modifier.fillMaxWidth(),
-            text = "Home Screen",
-            textAlign = TextAlign.Center
+            text = stringResource(id = R.string.explore),
+            textAlign = TextAlign.Start,
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold
         )
+
+        Spacer(modifier = Modifier.height(Height.Small))
+
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = stringResource(id = R.string.find_unique_equipment_for),
+            textAlign = TextAlign.Start,
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Normal
+        )
+
     }
 }
 
