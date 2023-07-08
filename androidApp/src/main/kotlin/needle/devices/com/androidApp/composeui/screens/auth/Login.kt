@@ -25,10 +25,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import cafe.adriel.voyager.core.screen.Screen
@@ -56,8 +57,8 @@ class ScreenLogin : Screen, KoinComponent {
                 viewModel.updatePhoneNumber(phoneNumber)
             },
             onClickLogin = {
-                viewModel.initEventLogin()
-                // navigator.push(OtpScreen())
+                // viewModel.initEventLogin()
+                navigator.push(OtpScreen(phoneNumber = uiState.phoneNumber))
             }
         )
     }
@@ -84,19 +85,32 @@ private fun LoginScreen(
 
         Spacer(modifier = Modifier.height(Height.Normal))
 
-        Text(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            text = "Login Screen",
-            textAlign = TextAlign.Center
-        )
+            horizontalAlignment = Alignment.Start,
+            verticalArrangement = Arrangement.SpaceEvenly
+        ) {
+            Text(
+                text = stringResource(id = R.string.login_and_registration),
+                modifier = Modifier.fillMaxWidth(),
+                color = MaterialTheme.colorScheme.outline,
+            )
+            Spacer(modifier = Modifier.height(Height.Medium))
+            Text(
+                text = stringResource(id = R.string.give_me_your_number),
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
 
-        Spacer(modifier = Modifier.height(Height.Large))
+        Spacer(modifier = Modifier.height(Height.ExtraLarge))
 
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
             value = phoneNumber,
             onValueChange = { updatePhoneNumber(it) },
-            shape = RoundedCornerShape(8.dp),
+            shape = RoundedCornerShape(24.dp),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone)
         )
         /*MaterialCountryCodePicker()
@@ -126,11 +140,12 @@ private fun LoginScreen(
                     .padding(Padding.XsSmall)
             )
         }
+        Text(text = stringResource(id = R.string.next))
     }
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true, showSystemUi = true)
 private fun LoginScreenPreview() {
     LoginScreen(
         onBackButtonClick = {},

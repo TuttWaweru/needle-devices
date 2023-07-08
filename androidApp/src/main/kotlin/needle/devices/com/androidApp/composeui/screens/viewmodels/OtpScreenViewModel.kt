@@ -13,4 +13,7 @@ class OtpScreenViewModel: ViewModel() {
     fun updateOtp(value: String) = _uiState.update {
         it.copy(otp = value)
     }
+    fun updatePhoneNumber(value: String) = _uiState.update {
+        it.copy(phoneNumber = value)
+    }
 }

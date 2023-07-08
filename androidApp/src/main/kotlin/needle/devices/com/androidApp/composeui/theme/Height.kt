@@ -4,6 +4,10 @@ import androidx.compose.ui.unit.dp
 
 object Height {
     /**
+     *  2 dp
+     */
+    val XsSmall = 2.dp
+    /**
      *  4 dp
      */
     val Small = 4.dp
@@ -23,4 +27,8 @@ object Height {
      *  16 dp
      */
     val ExtraLarge = 32.dp
+    /**
+     *  48 dp
+     */
+    val FortyEight = 48.dp
 }

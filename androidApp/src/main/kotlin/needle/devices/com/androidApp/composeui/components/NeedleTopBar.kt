@@ -72,7 +72,7 @@ internal fun NeedleTopBar(
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true, showSystemUi = true)
 private fun NeedleTopBarPreview() {
     NeedleTopBar(
         onBackButtonClick = {},
