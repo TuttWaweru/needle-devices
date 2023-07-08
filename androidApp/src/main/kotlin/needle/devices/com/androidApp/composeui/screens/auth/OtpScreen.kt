@@ -1,5 +1,6 @@
 package needle.devices.com.androidApp.composeui.screens.auth
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -38,6 +39,7 @@ import needle.devices.com.androidApp.composeui.components.OutlinedOtpTextField
 import needle.devices.com.androidApp.composeui.screens.viewmodels.OtpScreenViewModel
 import needle.devices.com.androidApp.composeui.theme.Height
 import needle.devices.com.androidApp.composeui.theme.Padding
+import needle.devices.com.androidApp.utils.showToast
 import org.koin.core.component.KoinComponent
 import timber.log.Timber
 
@@ -56,7 +58,10 @@ data class OtpScreen(
             onNeedleIconClick = {},
             onClickLoginButton = {
                 if (uiState.otp.length != 4 || uiState.otp.isBlank()) {
-                    Timber.i("** Invalid Otp")
+                    context.showToast(
+                        message = context.resources.getString(R.string.invalid_otp),
+                        length = Toast.LENGTH_LONG
+                    )
                 } else {
                     navigator.push(ScreenRegister())
                 }
