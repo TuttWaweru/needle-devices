@@ -49,6 +49,7 @@ kotlin {
                 implementation(libs.kotlinx.serialization.json)
                 //Key-Value storage
                 implementation(libs.multiplatform.settings)
+                implementation(libs.multiplatform.settings.no.arg)
                 // DI
                 api(libs.koin.core)
             }

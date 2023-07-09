@@ -23,7 +23,7 @@ import needle.devices.com.settings.NeedleKeyValueStorageImpl
 import org.koin.dsl.module
 
 val storageModule = module {
-    single { Settings }
+    single { Settings() }
     single<NeedleKeyValueStorage> { NeedleKeyValueStorageImpl() }
 }
 

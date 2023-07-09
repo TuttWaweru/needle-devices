@@ -52,4 +52,19 @@ class LoginScreenViewModel : ViewModel(), KoinComponent {
             Timber.e(e, e.localizedMessage)
         }
     }
+
+    /* TODO remove debug code below.
+    fun testSettings() = viewModelScope.launch {
+        val token = "sample token"
+        try {
+            Timber.i("** testSettings: current-setting-token[ ${needleSettings.token} ], inserting[ $token ]")
+            needleSettings.token = token
+            Timber.i("** testSettings: insertED[ $token ]")
+            val newToken = needleSettings.token
+            Timber.i("** testSettings: newToken[ $newToken ]")
+        } catch (e: Exception) {
+            Timber.i("** testSettings-error: ${e.localizedMessage} - trying to save setting[ token - $token ]")
+            Timber.i(e, e.localizedMessage)
+        }
+    }*/
 }

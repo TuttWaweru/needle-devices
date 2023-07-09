@@ -40,6 +40,7 @@ import needle.devices.com.androidApp.composeui.components.NeedleTopBar
 import needle.devices.com.androidApp.composeui.screens.viewmodels.LoginScreenViewModel
 import needle.devices.com.androidApp.composeui.theme.Height
 import needle.devices.com.androidApp.composeui.theme.Padding
+import needle.devices.com.androidApp.utils.showToast
 import org.koin.core.component.KoinComponent
 
 class ScreenLogin : Screen, KoinComponent {
@@ -57,8 +58,11 @@ class ScreenLogin : Screen, KoinComponent {
                 viewModel.updatePhoneNumber(phoneNumber)
             },
             onClickLogin = {
-                // viewModel.initEventLogin()
-                navigator.push(OtpScreen(phoneNumber = uiState.phoneNumber))
+                if (uiState.phoneNumber.isBlank()) {
+                    context.showToast(context.resources.getString(R.string.invalid_phone_number))
+                } else {
+                    navigator.push(OtpScreen(phoneNumber = uiState.phoneNumber))
+                }
             }
         )
     }
