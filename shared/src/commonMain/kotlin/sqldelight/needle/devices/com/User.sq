@@ -1,0 +1,21 @@
+CREATE TABLE needleUser (
+  phone_number TEXT NOT NULL,
+  full_name TEXT NULL
+);
+
+CREATE INDEX needleUser_full_name ON needleUser(full_name);
+
+INSERT INTO needleUser (phone_number, full_name)
+VALUES ('0711223344', 'Ryan Getzlaf');
+
+selectAll:
+SELECT *
+FROM needleUser;
+
+insert:
+INSERT INTO needleUser(phone_number, full_name)
+VALUES (?, ?);
+
+insertFullNeedleUserObject:
+INSERT INTO needleUser(phone_number, full_name)
+VALUES ?;
