@@ -18,6 +18,9 @@ package needle.devices.com.di
 
 import com.russhwolf.settings.Settings
 import needle.devices.com.core.datasource.network.needleClient
+import needle.devices.com.database.createNeedleDatabase
+import needle.devices.com.repository.NeedleUserRepository
+import needle.devices.com.repository.NeedleUserRepositoryImpl
 import needle.devices.com.settings.NeedleKeyValueStorage
 import needle.devices.com.settings.NeedleKeyValueStorageImpl
 import org.koin.dsl.module
@@ -31,7 +34,17 @@ val apiModule = module {
     single { needleClient }
 }
 
+val databaseModule = module {
+    single { createNeedleDatabase(get()) }
+}
+
+val repositoryModule = module {
+    single<NeedleUserRepository> { NeedleUserRepositoryImpl(get()) }
+}
+
 val commonModules = listOf(
     apiModule,
-    storageModule
+    storageModule,
+    databaseModule,
+    repositoryModule,
 )

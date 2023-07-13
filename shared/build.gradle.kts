@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     kotlin("plugin.serialization")
+    alias(libs.plugins.plugin.sqldelight)
 }
 
 kotlin {
@@ -52,6 +53,8 @@ kotlin {
                 implementation(libs.multiplatform.settings.no.arg)
                 // DI
                 api(libs.koin.core)
+                // DB coroutines
+                implementation(libs.sqldelight.coroutines.extensions)
             }
         }
 
@@ -59,6 +62,9 @@ kotlin {
             dependencies {
                 //Network
                 implementation(libs.ktor.client.okhttp)
+                // Database-SQLDelight
+                implementation(libs.sqldelight.driver.android)
+                implementation(libs.sqldelight.driver.sqlite)
             }
         }
 
@@ -69,6 +75,8 @@ kotlin {
             dependencies {
                 //Network
                 implementation(libs.ktor.client.ios)
+                // Database-SQLDelight
+                implementation(libs.sqldelight.driver.native)
             }
         }
     }
@@ -88,5 +96,14 @@ android {
     }
     dependencies {
         coreLibraryDesugaring(libs.desugar.jdk.libs)
+    }
+}
+
+sqldelight {
+    databases {
+        create("NeedleDatabase") {
+            packageName.set("needle.devices.com.db")
+            srcDirs.setFrom("src/commonMain/kotlin/sqldelight")
+        }
     }
 }

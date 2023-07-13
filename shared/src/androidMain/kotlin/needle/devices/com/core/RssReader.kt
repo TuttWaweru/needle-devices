@@ -7,6 +7,7 @@ import com.russhwolf.settings.SharedPreferencesSettings
 import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier
 import kotlinx.serialization.json.Json
+import needle.devices.com.AndroidHttpClient
 
 fun RssReader.Companion.create(ctx: Context, withLog: Boolean) = RssReader(
     FeedLoader(

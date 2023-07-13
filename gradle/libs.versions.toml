@@ -2,7 +2,7 @@
 accompanist = "0.30.1"
 activity-compose = "1.7.2"
 androidx-compose = "1.6.0-alpha01"
-androidx-compose-compiler="1.4.7"
+androidx-compose-compiler="1.4.8"
 androidx-compose-material3 = "1.2.0-alpha03"
 androidx-compose-ui = "1.4.3"
 androidxCoreSplashscreen = "1.0.1"
@@ -17,8 +17,8 @@ littlerobotsVersionCatalogUpdate = "0.8.0"
 multiplatform-settings = "1.0.0"
 napier = "2.6.1"
 navigation-compose = "2.6.0"
-plugin-android = "8.2.0-alpha10"
-plugin-kotlin = "1.8.21"
+plugin-android = "8.2.0-alpha12"
+plugin-kotlin = "1.8.22"
 plugin-gver = "0.47.0"
 timber = "5.0.1"
 voyager = "1.0.0-rc06"
@@ -26,6 +26,7 @@ work-runtime-ktx = "2.8.1"
 libphonenumber = "8.13.15"
 country-code-picker = "1.0.0"
 xMaterialccp = "1.1.5"
+sqldelight = "2.0.0-rc02"
 
 [libraries]
 accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist" }
@@ -60,15 +61,21 @@ plugin-android = { module = "com.android.tools.build:gradle", version.ref = "plu
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "plugin-kotlin" }
 plugin-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "plugin-kotlin" }
 plugin-gver = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "plugin-gver" }
+plugin-sqldelight-gradle = { module = "app.cash.sqldelight:gradle-plugin", version.ref = "sqldelight" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "work-runtime-ktx" }
 libphonenumber = { module = "com.googlecode.libphonenumber:libphonenumber", version.ref = "libphonenumber" }
 country-code-picker = { module = "com.github.togisoft:jetpack_compose_country_code_picker", version.ref = "country-code-picker" }
 xMaterialccp = { module = "com.github.TuleSimon:xMaterialccp", version.ref = "xMaterialccp" }
+sqldelight-driver-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
+sqldelight-driver-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
+sqldelight-driver-sqlite = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
+sqldelight-coroutines-extensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
 
 [bundles]
 plugins = ["plugin-android", "plugin-kotlin",  "plugin-kotlin-serialization", "plugin-gver"]
 
 [plugins]
 littlerobots-version-catalog-update = { id = "nl.littlerobots.version-catalog-update", version.ref = "littlerobotsVersionCatalogUpdate" }
+plugin-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }

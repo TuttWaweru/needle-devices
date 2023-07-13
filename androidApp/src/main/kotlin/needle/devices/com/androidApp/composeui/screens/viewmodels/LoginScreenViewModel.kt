@@ -5,10 +5,13 @@ import androidx.lifecycle.viewModelScope
 import com.google.i18n.phonenumbers.PhoneNumberUtil
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import needle.devices.com.androidApp.models.LoginScreenUiState
 import needle.devices.com.core.datasource.network.sampleLogin
+import needle.devices.com.db.NeedleUser
+import needle.devices.com.repository.NeedleUserRepository
 import needle.devices.com.settings.NeedleKeyValueStorage
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -19,6 +22,15 @@ class LoginScreenViewModel : ViewModel(), KoinComponent {
         MutableStateFlow(LoginScreenUiState())
     val uiState = _uiState.asStateFlow()
     private val needleSettings: NeedleKeyValueStorage by inject()
+    private val userRepo: NeedleUserRepository by inject()
+
+    init {
+        viewModelScope.launch {
+            userRepo.selectAllUsersFlow().collectLatest {users: List<NeedleUser> ->
+                Timber.i("** Found ${users.size}-users")
+            }
+        }
+    }
 
     fun updatePhoneNumber(value: String) = _uiState.update {
         it.copy(phoneNumber = value)

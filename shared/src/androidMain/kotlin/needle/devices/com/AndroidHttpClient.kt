@@ -1,4 +1,4 @@
-package needle.devices.com.core
+package needle.devices.com
 
 import io.github.aakira.napier.Napier
 import io.ktor.client.*
