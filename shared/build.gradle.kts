@@ -103,6 +103,7 @@ sqldelight {
     databases {
         create("NeedleDatabase") {
             packageName.set("needle.devices.com.db")
+            srcDirs.setFrom("src/commonMain/kotlin/sqldelight")
         }
     }
 }

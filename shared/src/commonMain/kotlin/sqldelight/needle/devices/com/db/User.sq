@@ -1,6 +1,6 @@
 CREATE TABLE needleUser (
   phone_number TEXT NOT NULL,
-  full_name TEXT NULL
+  full_name TEXT
 );
 
 CREATE INDEX needleUser_full_name ON needleUser(full_name);
