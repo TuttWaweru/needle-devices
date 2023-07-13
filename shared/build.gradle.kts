@@ -64,6 +64,7 @@ kotlin {
                 implementation(libs.ktor.client.okhttp)
                 // Database-SQLDelight
                 implementation(libs.sqldelight.driver.android)
+                implementation(libs.sqldelight.driver.sqlite)
             }
         }
 
