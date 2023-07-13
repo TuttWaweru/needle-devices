@@ -26,38 +26,44 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import needle.devices.com.core.datasource.network.needleClient
+import needle.devices.com.database.DbDriverFactory
 import org.koin.dsl.module
 import java.util.concurrent.TimeUnit
 
-val androidModule = listOf(
-    module {
-        single {
-            needleClient.config { engine { get() } }
-        }
+val androidApiModule = module {
+    single { needleClient.config { engine { get() } } }
 
-        single { // Testing; to remove if fully unnecessary
-            HttpClient(OkHttp) {
-                engine {
-                    config {
-                        retryOnConnectionFailure(true)
-                        connectTimeout(5, TimeUnit.SECONDS)
-                    }
+    single { // Testing; to remove if fully unnecessary
+        HttpClient(OkHttp) {
+            engine {
+                config {
+                    retryOnConnectionFailure(true)
+                    connectTimeout(5, TimeUnit.SECONDS)
                 }
-                install(ContentNegotiation) {
-                    json(Json {
-                        prettyPrint = true
-                        isLenient = true
-                    })
-                }
-                install(Logging) {
-                    level = LogLevel.ALL
-                    logger = object : Logger {
-                        override fun log(message: String) {
-                            Napier.v(tag = "NeedleAndroidHttpClient", message = message)
-                        }
+            }
+            install(ContentNegotiation) {
+                json(Json {
+                    prettyPrint = true
+                    isLenient = true
+                })
+            }
+            install(Logging) {
+                level = LogLevel.ALL
+                logger = object : Logger {
+                    override fun log(message: String) {
+                        Napier.v(tag = "NeedleAndroidHttpClient", message = message)
                     }
                 }
             }
         }
     }
+}
+
+val androidDbModule = module {
+    single { DbDriverFactory(get()) }
+}
+
+val androidModule = listOf(
+    androidApiModule,
+    androidDbModule,
 )
